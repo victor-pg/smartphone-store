@@ -1,0 +1,59 @@
+nav {
+    height:100px;
+    .nav-logo {
+        position: absolute;
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:50px;
+
+        img {
+            width: 32px;
+        }
+    }
+
+    .nav-content {
+        display:flex;
+        justify-content: space-between;
+        // align-items: center;
+        .nav-items {
+            font-family: "Manrope", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            list-style-type: none;
+            width:50%;
+            height:50px;
+
+            a {
+                text-decoration: none;
+                color: black;
+                // font-size: 12px;
+                display: flex;
+                align-items: center;
+            }
+            .star-icon {
+                width: 15px;
+                // height: 15px;
+            }
+        }
+        .nav-icons{
+            width:150px;
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+
+            a{
+                text-decoration: none;
+                color:black;
+                width:15px;
+                cursor: pointer;
+
+                span{
+                    width:15px
+                }
+            }
+        }
+    }
+}

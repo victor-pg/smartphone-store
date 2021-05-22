@@ -1,0 +1,63 @@
+.smartphones-page {
+    font-family: "Manrope", sans-serif;
+
+    .smartphones-page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div:first-child {
+            font-size: 24px;
+            font-weight: 500;
+        }
+        div:last-child {
+            font-size: 14px;
+            font-weight: 700;
+
+            select {
+                font-family: "Manrope", sans-serif;
+                font-weight: 700;
+                border: none;
+            }
+        }
+    }
+
+    // smartphones
+
+    .smartphones {
+        margin-top: 30px;
+        display: flex;
+
+        .smartphones-filter {
+            width: 25%;
+        }
+
+        .smartphones-content {
+            width: 75%;
+        }
+    }
+    
+    .price-calculator{
+        margin-top: 20px;
+    }
+
+    .price-calculator-input {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        width: 56px;
+        height: 32px;
+        border: none;
+        outline: none;
+    }
+    .price-calculator-button {
+        width: 35px;
+        height: 32px;
+        background: #000000;
+        border-radius: 6px;
+        color:white;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,134 @@
+.homepage{
+    .section{
+        width:100%;
+        font-family: "Manrope", sans-serif;
+
+        .section-subtitle{
+            font-size: 24px;
+            font-weight: 500;
+        }
+        .section-title{
+            font-size: 96px;
+            font-weight: 700;
+        }
+    }
+
+    .section1{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        overflow: hidden;
+        background-color: #EFE5FE;
+        height: 660px;
+
+        .section1-text{
+            width:70%;
+        }
+        .section1-img{
+            width:50%;
+            position: relative;
+            
+            img{
+                width:386px;
+                margin-top: 2px;
+                // position: absolute;
+                // top: -300px;
+            }
+        }
+    }
+
+    //section 2
+
+    .section2{
+        margin-top: 50px;
+        display: flex;
+        // justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+        height: 660px;
+        position: relative;
+
+        .section2-text{
+            width:80%;
+            position: absolute;
+            color:white;
+            z-index: 2;
+           
+        }
+        .section2-img{
+            height: 100%;
+            display:flex;
+            align-items: flex-end;
+            // width:20%;
+            z-index: 1;
+            position: absolute;
+            right: 50px;
+            
+            img{
+                width:523px;
+                // width:100%;
+                
+            }
+        }
+    }
+
+
+    // section 3
+
+    .section3{
+        margin-top: 50px;
+        display: flex;
+        overflow: hidden;
+        background-color: #C4471C;
+        height: 660px;
+        position: relative;
+
+        .section3-text{
+            width:55%;
+            color:white;           
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .section3-img{
+            height: 100%;
+            width:45%;
+            display:flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            position: absolute;
+            right: 30px;
+            
+            img{
+                width:100%;
+            }
+        }
+
+    }
+
+    .homepage-arrow-down{
+        height: 300px;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 14px;
+        position:absolute;
+        left: 0;
+        top:50%;
+
+        .homepage-arrow-down-text{
+            text-transform: uppercase;
+            font-family: "Manrope", sans-serif;
+            transform: rotate(-90deg);
+        }
+    }
+
+}
