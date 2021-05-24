@@ -1,6 +1,6 @@
 export const data = [
     {
-        id:1,
+        id:0,
         title:'iPhone 12',
         numberOfColors : 6,
         color:'purple',
@@ -14,7 +14,7 @@ export const data = [
         image:'iphone12purple.png'
     },
     {
-        id:2,
+        id:1,
         title:'Samsung Galaxy S21 Ultra 5G',
         numberOfColors : 6,
         color:'phantom silver',
