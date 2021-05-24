@@ -63,6 +63,12 @@
 ul{
     list-style-type: none;
 }
+.hidden{
+    display:none;
+}
+.active{
+    display: inherit;
+}
 
 .material-icons {
     font-family: 'Material Icons';

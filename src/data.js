@@ -1,6 +1,7 @@
 export const data = [
     {
-        name:'iPhone 12',
+        id:1,
+        title:'iPhone 12',
         numberOfColors : 6,
         color:'purple',
         price:799,
@@ -9,10 +10,12 @@ export const data = [
         numberOfSim:1,
         ram:4,
         displaySize:6.1,
-        cpuCores:'Hexa-core'
+        cpuCores:'Hexa-core',
+        image:'iphone12purple.png'
     },
     {
-        name:'Samsung Galaxy S21 Ultra 5G',
+        id:2,
+        title:'Samsung Galaxy S21 Ultra 5G',
         numberOfColors : 6,
         color:'phantom silver',
         price:1199,
@@ -21,6 +24,7 @@ export const data = [
         numberOfSim:2,
         ram:12,
         displaySize:6.8,
-        cpuCores:'Octa-core'
+        cpuCores:'Octa-core',
+        image:'galaxyS21.jpg'
     }
 ]

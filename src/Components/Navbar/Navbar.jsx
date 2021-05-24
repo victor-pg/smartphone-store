@@ -13,7 +13,7 @@ const Navbar = () => {
             </div>
             <div className="container nav-content">
                 <ul className="nav-items">
-                    <li><Link to="/">New <span class="material-icons star-icon">
+                    <li><Link to="/">New <span className="material-icons star-icon">
                         star
                     </span></Link></li>
                     <li><Link to="/smartphones">Smartphones</Link></li>
@@ -22,9 +22,9 @@ const Navbar = () => {
                     <li><Link to="/">Contact</Link></li>
                 </ul>
                 <div className="nav-icons">
-                    <Link to="/" className="reset-this"><span class="material-icons-outlined">search</span></Link>
-                    <Link to="/" className="reset-this"><span class="material-icons-outlined">shopping_bag</span></Link>
-                    <Link to="/" className="reset-this"><span class="material-icons-outlined">mode_night</span></Link>
+                    <Link to="/" className="reset-this"><span className="material-icons-outlined">search</span></Link>
+                    <Link to="/cart" className="reset-this"><span className="material-icons-outlined">shopping_bag</span></Link>
+                    <Link to="/" className="reset-this"><span className="material-icons-outlined">mode_night</span></Link>
                 </div>
             </div>
         </nav>

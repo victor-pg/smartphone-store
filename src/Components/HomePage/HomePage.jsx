@@ -23,7 +23,7 @@ const HomePage = () => {
                 <div className="homepage-arrow-down-text">
                     scroll to explore
                 </div>
-                <span class="material-icons-outlined">arrow_downward</span>
+                <span className="material-icons-outlined">arrow_downward</span>
             </div>
 
             <div className="section section2">

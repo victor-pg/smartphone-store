@@ -1,8 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SmartphonesList from '../SmartphonesList/SmartphonesList';
 
 import './SmartphonesPage.scss';
 
 const SmartphonesPage = () => {
+
+    const [showPriceList, setShowPriceList] = useState('');
+    const [showOs, setShowOs] = useState('');
+    const [showSim, setShowSim] = useState('');
+    const [showStorage, setShowStorage] = useState('');
+    const [showRam, setShowRam] = useState('');
+    const [showDisplay, setShowDisplay] = useState('');
+    const [showCpu, setShowCpu] = useState('');
+    const [showColor, setShowColor] = useState('');
+
+    const toggleList = (e) => {
+        if (e.target.classList.contains('priceList')) {
+            if (showPriceList === '') setShowPriceList('active')
+            if (showPriceList === 'active') setShowPriceList('')
+        }
+
+        if (e.target.classList.contains('osList')) {
+            if (showOs === '') setShowOs('active')
+            if (showOs === 'active') setShowOs('')
+        }
+        if (e.target.classList.contains('simList')) {
+            if (showSim === '') setShowSim('active')
+            if (showSim === 'active') setShowSim('')
+        }
+        if (e.target.classList.contains('storageList')) {
+            if (showStorage === '') setShowStorage('active')
+            if (showStorage === 'active') setShowStorage('')
+        }
+        if (e.target.classList.contains('ramList')) {
+            if (showRam === '') setShowRam('active')
+            if (showRam === 'active') setShowRam('')
+        }
+        if (e.target.classList.contains('displayList')) {
+            if (showDisplay === '') setShowDisplay('active')
+            if (showDisplay === 'active') setShowDisplay('')
+        }
+        if (e.target.classList.contains('cpuList')) {
+            if (showCpu === '') setShowCpu('active')
+            if (showCpu === 'active') setShowCpu('')
+        }
+        if (e.target.classList.contains('colorList')) {
+            if (showColor === '') setShowColor('active')
+            if (showColor === 'active') setShowColor('')
+        }
+
+
+    }
+
+
+
     return (
         <div className="smartphones-page">
             <div className="container">
@@ -31,9 +82,9 @@ const SmartphonesPage = () => {
                         <div className="price w-100 f-bold">
                             <div className="price-header d-flex space-between">
                                 <span>Price</span>
-                                <span className="material-icons-outlined filter-arrow-size">expand_more</span>
+                                <span onClick={toggleList} className="material-icons-outlined filter-arrow-size priceList">expand_more</span>
                             </div>
-                            <ul className="price-list">
+                            <ul className={`price-list hidden ${showPriceList}`}>
                                 <li className="list-item">
                                     <input type="checkbox" name="u200" value="200" />
                                     <label htmlFor="u200">Under $200</label>
@@ -66,9 +117,9 @@ const SmartphonesPage = () => {
                         <div className="os w-100 f-bold">
                             <div className="os-header d-flex space-between">
                                 <span>Operating System</span>
-                                <span className="material-icons-outlined filter-arrow-size">expand_more</span>
+                                <span onClick={toggleList} className="material-icons-outlined filter-arrow-size osList">expand_more</span>
                             </div>
-                            <ul className="os-list">
+                            <ul className={`os-list hidden ${showOs}`}>
                                 <li className="list-item">
                                     <input type="checkbox" name="android" value="android" />
                                     <label htmlFor="android">Android</label>
@@ -84,9 +135,9 @@ const SmartphonesPage = () => {
                         <div className="sim w-100 f-bold">
                             <div className="sim-header d-flex space-between">
                                 <span>SIM Cards</span>
-                                <span className="material-icons-outlined filter-arrow-size">expand_more</span>
+                                <span onClick={toggleList} className="material-icons-outlined filter-arrow-size simList">expand_more</span>
                             </div>
-                            <ul className="sim-list">
+                            <ul className={`sim-list hidden ${showSim}`}>
                                 <li className="list-item">
                                     <input type="checkbox" name="1" value="1" />
                                     <label htmlFor="1">Single SIM</label>
@@ -102,9 +153,9 @@ const SmartphonesPage = () => {
                         <div className="storage w-100 f-bold">
                             <div className="storage-header d-flex space-between">
                                 <span>Internal Storage</span>
-                                <span className="material-icons-outlined filter-arrow-size">expand_more</span>
+                                <span onClick={toggleList} className="material-icons-outlined filter-arrow-size storageList">expand_more</span>
                             </div>
-                            <ul className="storage-list">
+                            <ul className={`storage-list hidden ${showStorage}`}>
                                 <li className="list-item">
                                     <input type="checkbox" name="s128" value="128" />
                                     <label htmlFor="s128">128 GB</label>
@@ -120,9 +171,9 @@ const SmartphonesPage = () => {
                         <div className="ram w-100 f-bold">
                             <div className="ram-header d-flex space-between">
                                 <span>RAM</span>
-                                <span className="material-icons-outlined filter-arrow-size">expand_more</span>
+                                <span onClick={toggleList} className="material-icons-outlined filter-arrow-size ramList">expand_more</span>
                             </div>
-                            <ul className="ram-list">
+                            <ul className={`ram-list hidden ${showRam}`}>
                                 <li className="list-item">
                                     <input type="checkbox" name="gb4" value="4" />
                                     <label htmlFor="gb4">4 GB</label>
@@ -138,9 +189,9 @@ const SmartphonesPage = () => {
                         <div className="display w-100 f-bold">
                             <div className="display-header d-flex space-between">
                                 <span>Display Size</span>
-                                <span className="material-icons-outlined filter-arrow-size">expand_more</span>
+                                <span onClick={toggleList} className="material-icons-outlined filter-arrow-size displayList">expand_more</span>
                             </div>
-                            <ul className="display-list">
+                            <ul className={`display-list hidden ${showDisplay}`}>
                                 <li className="list-item">
                                     <input type="checkbox" name="d61" value="61" />
                                     <label htmlFor="d61">6.1"</label>
@@ -156,9 +207,9 @@ const SmartphonesPage = () => {
                         <div className="cpu w-100 f-bold">
                             <div className="cpu-header d-flex space-between">
                                 <span>CPU Type</span>
-                                <span className="material-icons-outlined filter-arrow-size">expand_more</span>
+                                <span onClick={toggleList} className="material-icons-outlined filter-arrow-size cpuList">expand_more</span>
                             </div>
-                            <ul className="cpu-list">
+                            <ul className={`cpu-list hidden ${showCpu}`}>
                                 <li className="list-item">
                                     <input type="checkbox" name="hexa" value="6" />
                                     <label htmlFor="hexa">Hexa-core</label>
@@ -174,9 +225,9 @@ const SmartphonesPage = () => {
                         <div className="color w-100 f-bold">
                             <div className="color-header d-flex space-between">
                                 <span>Color</span>
-                                <span className="material-icons-outlined filter-arrow-size">expand_more</span>
+                                <span onClick={toggleList} className="material-icons-outlined filter-arrow-size colorList">expand_more</span>
                             </div>
-                            <ul className="color-list">
+                            <ul className={`color-list hidden ${showColor}`}>
                                 <li className="list-item">
                                     <input type="checkbox" name="purple" value="purple" />
                                     <label htmlFor="purple">Purple</label>
@@ -190,7 +241,9 @@ const SmartphonesPage = () => {
                         <hr className="filter-hr-color w-100" />
 
                     </div>
-                    <div className="smartphones-content"></div>
+                    <div className="smartphones-content">
+                        <SmartphonesList />
+                    </div>
                 </div>
 
             </div>
