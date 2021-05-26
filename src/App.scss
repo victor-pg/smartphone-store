@@ -69,33 +69,9 @@ ul{
 .active{
     display: inherit;
 }
-
-.light{
-    background-color: inherit;
-    color:inherit;
+.red-color{
+    color:red;
 }
-.dark{
-    background-color: black;
-    color:white;
-}
-
-:root {
-    --bg-color: #fff;
-    --text-color: #000;
-  }
-  
-  [data-theme="dark"] {
-    --bg-color: #3F3F3F;
-    --text-color: #fff;
-  }
-  
-  .app {
-    font-family: sans-serif;
-    text-align: center;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;

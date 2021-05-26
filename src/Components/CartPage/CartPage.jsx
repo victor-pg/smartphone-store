@@ -38,13 +38,20 @@ const CartPage = () => {
             <div className="cart-list">
                 {showSuccesAlert && <Alert severity="success" className="succes-alert">Removed Successfully</Alert>}
                 {showErrorAlert && <Alert severity="error" className="error-alert">Error</Alert>}
+
                 <div className="container">
-                    <div className="total-price">Total price : <strong>${totalPrice}</strong></div>
-                </div>
-                <div className="container cart-list-content">
-                    {
-                        cartIds.map(item => <CartItem item={data[item]} key={item} removeFromCart={() => removeFromCart(item)} />)
-                    }
+                    <div className="cart-list-content">
+                        {
+                            cartIds.map(item => <CartItem item={data[item]} key={item} removeFromCart={() => removeFromCart(item)} />)
+                        }
+                    </div>
+                    <div className="cart-total-price">
+                        <div className="cart-total-price-text">Total:</div>
+                        <div className="total-price">${totalPrice}</div>
+                    </div>
+                    <div className="buy-button-wrapper">
+                        <button className="buy-button">Checkout</button>
+                    </div>
                 </div>
             </div>
         );

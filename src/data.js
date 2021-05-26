@@ -25,6 +25,6 @@ export const data = [
         ram:12,
         displaySize:6.8,
         cpuCores:'Octa-core',
-        image:'galaxyS21.jpg'
+        image:'galaxyS212.png'
     }
 ]

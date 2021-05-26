@@ -1,5 +1,12 @@
 nav {
     height:100px;
+    width:100%;
+    position: fixed;
+    z-index: 50;
+    background-color: rgba($color: white, $alpha: 0.7);
+    backdrop-filter: blur(8px);
+
+   
     .nav-logo {
         position: absolute;
         width: 10%;
@@ -7,6 +14,7 @@ nav {
         align-items: center;
         justify-content: center;
         height:50px;
+        height: 100%;
 
         img {
             width: 32px;
@@ -17,6 +25,7 @@ nav {
         display:flex;
         justify-content: space-between;
         // align-items: center;
+        height: 100%;
         .nav-items {
             font-family: "Manrope", sans-serif;
             display: flex;
@@ -25,6 +34,7 @@ nav {
             list-style-type: none;
             width:50%;
             height:50px;
+            height: 100%;
 
             a {
                 text-decoration: none;
