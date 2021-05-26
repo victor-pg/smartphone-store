@@ -5,7 +5,7 @@ import { data } from '../../data';
 
 import './SmartphonesList.scss';
 
-const SmartphonesList = () => {
+const SmartphonesList = ({ filteredOptions }) => {
 
     const [showSuccesAlert, setShowSuccesAlert] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
@@ -26,7 +26,7 @@ const SmartphonesList = () => {
 
         } else {
             const candidate = currentItems.includes(id);
-            if (candidate){
+            if (candidate) {
                 setShowWarningAlert(true);
                 setTimeout(() => setShowWarningAlert(false), 2000);
                 return;
@@ -44,9 +44,48 @@ const SmartphonesList = () => {
 
     }
 
+   
+
+    let filteredByPrice;
+
+    if(filteredOptions.priceFrom && filteredOptions.priceTo){
+        filteredByPrice = data.filter((item) => item.price <= parseInt(filteredOptions.priceTo) && item.price >= parseInt(filteredOptions.priceFrom) )
+    }else{
+        filteredByPrice = data.filter((item) => item.price <= parseInt(filteredOptions.price) && item.price >= parseInt(filteredOptions.price - 100) )
+    }
+
+    const filteredByOs = data.filter((item) => item.os === filteredOptions.os)
+    const filteredBySim = data.filter((item) => item.numberOfSim === parseInt(filteredOptions.sim))
+    const filteredByStorage = data.filter((item) => item.storage === parseInt(filteredOptions.storage))
+    const filteredByRam = data.filter((item) => item.ram === parseInt(filteredOptions.ram))
+    const filteredByDisplay = data.filter((item) => item.displaySize >= parseFloat(filteredOptions.display))
+    const filteredByCpu = data.filter((item) => item.cpuCores === filteredOptions.cpu)
+    const filteredByColor = data.filter((item) => item.color === filteredOptions.color)
+
+    const filteredWithoutRepeat = [...filteredByPrice, ...filteredByOs, ...filteredBySim, ...filteredByStorage, ...filteredByRam, ...filteredByDisplay, ...filteredByCpu, ...filteredByColor];
+
+    const filtered = filteredWithoutRepeat.filter((item, index) => filteredWithoutRepeat.indexOf(item) === index);
+
+
     return (
         <>
-            {data.length > 0 ?
+            {filtered.length > 0 ?
+                <div className="smartphones-list">
+                    {showSuccesAlert && <Alert severity="success" className="succes-alert">Added Successfully</Alert>}
+                    {showWarningAlert && <Alert severity="warning" className="warning-alert">Already exists in cart</Alert>}
+                    {showErrorAlert && <Alert severity="error" className="error-alert">Error</Alert>}
+                    {
+                        filtered.map(item => <SmartphoneItem
+                            item={item}
+                            key={item.id}
+                            addToCart={() => addToCart(item.id)}
+                            showSuccesAlert={showSuccesAlert}
+                            showErrorAlert={showErrorAlert}
+                        />
+                        )
+                    }
+                </div>
+                :
                 <div className="smartphones-list">
                     {showSuccesAlert && <Alert severity="success" className="succes-alert">Added Successfully</Alert>}
                     {showWarningAlert && <Alert severity="warning" className="warning-alert">Already exists in cart</Alert>}
@@ -62,7 +101,7 @@ const SmartphonesList = () => {
                         )
                     }
                 </div>
-                : null}
+            }
         </>
     );
 }

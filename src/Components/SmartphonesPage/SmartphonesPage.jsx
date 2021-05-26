@@ -5,7 +5,7 @@ import './SmartphonesPage.scss';
 
 const SmartphonesPage = () => {
 
-    const [showPriceList, setShowPriceList] = useState('');
+    const [showPriceList, setShowPriceList] = useState('active');
     const [showOs, setShowOs] = useState('');
     const [showSim, setShowSim] = useState('');
     const [showStorage, setShowStorage] = useState('');
@@ -13,6 +13,32 @@ const SmartphonesPage = () => {
     const [showDisplay, setShowDisplay] = useState('');
     const [showCpu, setShowCpu] = useState('');
     const [showColor, setShowColor] = useState('');
+
+    const [price, setPrice] = useState("");
+    const [priceFrom, setPriceFrom] = useState("");
+    const [priceTo, setPriceTo] = useState("");
+    const [os, setOs] = useState("");
+    const [sim, setSim] = useState("");
+    const [storage, setStorage] = useState("");
+    const [ram, setRam] = useState("");
+    const [display, setDisplay] = useState("");
+    const [cpu, setCpu] = useState("");
+    const [color, setColor] = useState("");
+
+    const filteredOptions = {
+        priceFrom,
+        priceTo,
+        price,
+        os,
+        sim,
+        storage,
+        ram,
+        display,
+        cpu,
+        color
+    }
+
+    
 
     const toggleList = (e) => {
         if (e.target.classList.contains('priceList')) {
@@ -52,6 +78,44 @@ const SmartphonesPage = () => {
 
     }
 
+    const getPriceFrom=(e)=>{
+        setPriceFrom(e.target.value);
+    }
+    const getPriceTo=(e)=>{
+        setPriceTo(e.target.value);
+    }
+    const getPrice=(e)=>{
+        if(e.target.checked) setPrice(e.target.value)
+        else setPrice("");
+    }
+    const getOs=(e)=>{
+        if(e.target.checked) setOs(e.target.value)
+        else setOs("");
+    }
+    const getSim=(e)=>{
+        if(e.target.checked) setSim(e.target.value)
+        else setSim("");
+    }
+    const getStorage=(e)=>{
+        if(e.target.checked) setStorage(e.target.value)
+        else setStorage("");
+    }
+    const getRam=(e)=>{
+        if(e.target.checked) setRam(e.target.value)
+        else setRam("");
+    }
+    const getDisplay=(e)=>{
+        if(e.target.checked) setDisplay(e.target.value)
+        else setDisplay("");
+    }
+    const getCpu=(e)=>{
+        if(e.target.checked) setCpu(e.target.value)
+        else setCpu("");
+    }
+    const getColor=(e)=>{
+        if(e.target.checked) setColor(e.target.value)
+        else setColor("");
+    }
 
 
     return (
@@ -86,28 +150,28 @@ const SmartphonesPage = () => {
                             </div>
                             <ul className={`price-list hidden ${showPriceList}`}>
                                 <li className="list-item">
-                                    <input type="checkbox" name="u200" value="200" />
+                                    <input type="checkbox" name="u200" value="200" onChange={getPrice} />
                                     <label htmlFor="u200">Under $200</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="b200-b300" value="300" />
+                                    <input type="checkbox" name="b200-b300" value="300" onChange={getPrice}/>
                                     <label htmlFor="b200-b300">$200 - $300</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="b300-b400" value="400" />
+                                    <input type="checkbox" name="b300-b400" value="400" onChange={getPrice}/>
                                     <label htmlFor="b300-b400">$300 - $400</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="b400-b500" value="500" />
+                                    <input type="checkbox" name="b400-b500" value="500" onChange={getPrice}/>
                                     <label htmlFor="b400-b500">$400 - $500</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="b500-b600" value="600" />
+                                    <input type="checkbox" name="b500-b600" value="600" onChange={getPrice}/>
                                     <label htmlFor="b500-b600">$500 - $600</label>
                                 </li>
                                 <li className="price-calculator d-flex align-item-center space-evenly">
-                                    <span>$</span> <input type="number" name="moneyFrom" className="price-calculator-input" />
-                                    <span>to</span><span>$</span> <input type="number" name="moneyTo" className="price-calculator-input" />
+                                    <span>$</span> <input type="number" name="moneyFrom" className="price-calculator-input" onChange={getPriceFrom} />
+                                    <span>to</span><span>$</span> <input type="number" name="moneyTo" onChange={getPriceTo} className="price-calculator-input" />
                                     <button className="price-calculator-button f-normal">Go</button>
                                 </li>
                             </ul>
@@ -121,11 +185,11 @@ const SmartphonesPage = () => {
                             </div>
                             <ul className={`os-list hidden ${showOs}`}>
                                 <li className="list-item">
-                                    <input type="checkbox" name="android" value="android" />
+                                    <input type="checkbox" name="android" onChange={getOs} value="android" />
                                     <label htmlFor="android">Android</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="ios" value="ios" />
+                                    <input type="checkbox" name="ios" onChange={getOs} value="ios" />
                                     <label htmlFor="ios">iOS</label>
                                 </li>
                             </ul>
@@ -139,12 +203,12 @@ const SmartphonesPage = () => {
                             </div>
                             <ul className={`sim-list hidden ${showSim}`}>
                                 <li className="list-item">
-                                    <input type="checkbox" name="1" value="1" />
-                                    <label htmlFor="1">Single SIM</label>
+                                    <input type="checkbox" name="sim1" value="1" onChange={getSim} />
+                                    <label htmlFor="sim1">Single SIM</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="2" value="2" />
-                                    <label htmlFor="2">Dual SIM</label>
+                                    <input type="checkbox" name="sim2" value="2" onChange={getSim}/>
+                                    <label htmlFor="sim2">Dual SIM</label>
                                 </li>
                             </ul>
                         </div>
@@ -157,11 +221,11 @@ const SmartphonesPage = () => {
                             </div>
                             <ul className={`storage-list hidden ${showStorage}`}>
                                 <li className="list-item">
-                                    <input type="checkbox" name="s128" value="128" />
+                                    <input type="checkbox" name="s128" value="128" onChange={getStorage}/>
                                     <label htmlFor="s128">128 GB</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="s256" value="256" />
+                                    <input type="checkbox" name="s256" value="256" onChange={getStorage} />
                                     <label htmlFor="s256">256 GB</label>
                                 </li>
                             </ul>
@@ -175,11 +239,11 @@ const SmartphonesPage = () => {
                             </div>
                             <ul className={`ram-list hidden ${showRam}`}>
                                 <li className="list-item">
-                                    <input type="checkbox" name="gb4" value="4" />
+                                    <input type="checkbox" name="gb4" value="4" onChange={getRam} />
                                     <label htmlFor="gb4">4 GB</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="gb12" value="12" />
+                                    <input type="checkbox" name="gb12" value="12" onChange={getRam} />
                                     <label htmlFor="gb12">12 GB</label>
                                 </li>
                             </ul>
@@ -193,11 +257,11 @@ const SmartphonesPage = () => {
                             </div>
                             <ul className={`display-list hidden ${showDisplay}`}>
                                 <li className="list-item">
-                                    <input type="checkbox" name="d61" value="61" />
+                                    <input type="checkbox" name="d61" value="6.1" onChange={getDisplay} />
                                     <label htmlFor="d61">6.1"</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="d65plus" value="65" />
+                                    <input type="checkbox" name="d65plus" value="6.5" onChange={getDisplay}/>
                                     <label htmlFor="d65plus">6.5" +</label>
                                 </li>
                             </ul>
@@ -211,11 +275,11 @@ const SmartphonesPage = () => {
                             </div>
                             <ul className={`cpu-list hidden ${showCpu}`}>
                                 <li className="list-item">
-                                    <input type="checkbox" name="hexa" value="6" />
+                                    <input type="checkbox" name="hexa" value="Hexa-core" onChange={getCpu}/>
                                     <label htmlFor="hexa">Hexa-core</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="octa" value="8" />
+                                    <input type="checkbox" name="octa" value="Octa-core" onChange={getCpu}/>
                                     <label htmlFor="octa">Octa-core</label>
                                 </li>
                             </ul>
@@ -229,11 +293,11 @@ const SmartphonesPage = () => {
                             </div>
                             <ul className={`color-list hidden ${showColor}`}>
                                 <li className="list-item">
-                                    <input type="checkbox" name="purple" value="purple" />
+                                    <input type="checkbox" name="purple" value="purple" onChange={getColor} />
                                     <label htmlFor="purple">Purple</label>
                                 </li>
                                 <li className="list-item">
-                                    <input type="checkbox" name="phantonSilver" value="phantonSilver" />
+                                    <input type="checkbox" name="phantonSilver" value="phantonSilver" onChange={getColor} />
                                     <label htmlFor="phantonSilver">Phantom Silver</label>
                                 </li>
                             </ul>
@@ -242,7 +306,7 @@ const SmartphonesPage = () => {
 
                     </div>
                     <div className="smartphones-content">
-                        <SmartphonesList />
+                        <SmartphonesList filteredOptions={filteredOptions} />
                     </div>
                 </div>
 
